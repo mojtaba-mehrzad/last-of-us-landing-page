@@ -1,10 +1,11 @@
 import { useGSAP } from '@gsap/react';
 import {useMaskSettings} from "../../utils"
 import gsap from 'gsap';
-import React from 'react'
-import DoubleArrow from '../../components/DoubleArrow/DoubleArrow';
+import DoubleArrow from '../../components/DoubleArrow';
+import Intro from '../Intro';
 
 function Hero() {
+  console.log(Intro)
   const {initialMaskPos, initialMaskSize, maskPos, maskSize}=useMaskSettings()
   useGSAP(()=>{
     gsap.set(".mask-wrapper",{
@@ -36,18 +37,20 @@ function Hero() {
     .to('.mask-wrapper',{maskPosition:maskPos,ease:'power1.inOut'},"<")
     .to('.mask-wrapper',{opacity:0,ease:'power1.inOut'},"-=0.2")
     .to('.overlay-logo ',{opacity:1,ease:'power1.inOut'},"-=0.2")
-
+    .to('.entrance-message',{maskImage:"radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",direction:0.5,ease:"power1.inOut"},"-=0.4")
+    
   },[])
 
   return (
     <section className='hero-section'>
       <div className='size-full mask-wrapper '>
-        <img src="../../../assets/images/hero1.jpg" alt="" className='scale-out'/>
+        <img src="/assets/images/hero1.jpg" alt="" className='scale-out'/>
         <DoubleArrow/>
       </div>
       <div className='fake-logo-wrapper'>
-        <img src="../../../assets/images/white-us-logo.svg" alt=""  className='overlay-logo '/>
+        <img src="/assets/images/white-us-logo.svg" alt=""  className='overlay-logo '/>
       </div>
+      <Intro/>
     </section>
   )
 }
