@@ -8,6 +8,10 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { SplitText } from "gsap/SplitText";
 import Hero from "./modules/Hero"
 import NavBar from "./components/NavBar"
+import FirstVideo from './components/FirstVideo';
+import Ellie from './modules/Ellie';
+import SecondVideo from './components/SecondVideo';
+import Abby from './modules/Abby';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger,ScrollSmoother,ScrollToPlugin,SplitText);
 
@@ -17,6 +21,10 @@ function App() {
     <main>
       <Hero/>
       <NavBar/>
+      <FirstVideo/>
+      <Ellie/>
+      <SecondVideo/>
+      <Abby/>
     </main>
   )
 }

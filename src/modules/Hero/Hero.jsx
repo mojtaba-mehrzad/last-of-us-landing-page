@@ -5,7 +5,6 @@ import DoubleArrow from '../../components/DoubleArrow';
 import Intro from '../Intro';
 
 function Hero() {
-  console.log(Intro)
   const {initialMaskPos, initialMaskSize, maskPos, maskSize}=useMaskSettings()
   useGSAP(()=>{
     gsap.set(".mask-wrapper",{
@@ -35,8 +34,8 @@ function Hero() {
     },"<")
     .to('.mask-wrapper',{maskSize,ease:'power1.inOut'},"<")
     .to('.mask-wrapper',{maskPosition:maskPos,ease:'power1.inOut'},"<")
-    .to('.mask-wrapper',{opacity:0,ease:'power1.inOut'},"-=0.2")
-    .to('.overlay-logo ',{opacity:1,ease:'power1.inOut'},"-=0.2")
+    .to('.mask-wrapper',{opacity:0,ease:'power1.inOut'},"-=0.1")
+    .to('.overlay-logo ',{opacity:1,ease:'power1.inOut'},"-=0.3")
     .to('.entrance-message',{maskImage:"radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",direction:0.5,ease:"power1.inOut"},"-=0.4")
     
   },[])

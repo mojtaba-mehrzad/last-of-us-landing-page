@@ -85,10 +85,10 @@
         @apply rounded-full md:size-28 size-20 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center;
       }
       .fake-logo-wrapper {
-        @apply absolute z-50 xs:top-[9.5rem] sm:top-[12.8rem] md:top-[8.5rem] 2xl:top-44 3xl:top-32 left-1/2 -translate-x-1/2;
+        @apply absolute z-50 xs:top-1/10 sm:top-1/12 md:top-1/16 2xl:top-1/20 3xl:top-1/24 left-1/2 -translate-x-1/2;
       }
       .overlay-logo {
-        @apply size-full object-cover opacity-0 w-20 md:w-24 2xl:w-28 3xl:w-32;
+        @apply size-full object-cover opacity-0 xs:w-20 sm:w-24 md:w-26 2xl:w-28 3xl:w-32;
       }
     }
     .first-vd-wrapper {
@@ -114,21 +114,21 @@
         @apply text-white md:text-2xl text-lg md:pe-28 pe-14;
       }
       .ellie-1 {
-        @apply bg-yellow lg:h-[80vh] w-auto -translate-x-5;
+        @apply bg-yellow lg:h-[80vh] w-auto -translate-x-5 ;
   
         img {
           @apply size-full object-cover [object-position:5%_center] hover:scale-[0.98] transition duration-700 ease-in-out;
         }
       }
       .ellie-2 {
-        @apply bg-yellow h-[90vh] w-auto md:mt-36 mt-20 -translate-x-5;
+        @apply bg-yellow h-[90vh] w-auto md:mt-36 mt-20 -translate-x-5 ;
   
         img {
           @apply size-full object-cover [object-position:80%_center] hover:scale-x-[0.97] hover:scale-y-[0.98] transition duration-700 ease-in-out;
         }
       }
       .ellie-3 {
-        @apply bg-yellow h-[50vh] md:w-[60%] -translate-x-5;
+        @apply bg-yellow h-[50vh] md:w-[60%] -translate-x-5 ;
   
         img {
           @apply size-full object-cover [object-position:42%_center] hover:scale-[0.97] transition duration-700 ease-in-out;
