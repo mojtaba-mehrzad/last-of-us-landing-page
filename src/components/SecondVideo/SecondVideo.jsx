@@ -37,7 +37,7 @@ export default function SecondVideo() {
     <section className="abby">
       <div className="h-dvh">
         <video
-          src="/assets/videos/last-vid-2.mp4"
+          src={`${import.meta.env.BASE_URL}assets/videos/last-vid-2.mp4`}
           className="second-vd"
           ref={videoRef}
           muted

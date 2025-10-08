@@ -43,11 +43,11 @@ function Hero() {
   return (
     <section className='hero-section'>
       <div className='size-full mask-wrapper '>
-        <img src="/assets/images/hero1.jpg" alt="" className='scale-out'/>
+        <img src={`${import.meta.env.BASE_URL}assets/images/hero1.jpg`} alt="" className='scale-out'/>
         <DoubleArrow/>
       </div>
       <div className='fake-logo-wrapper'>
-        <img src="/assets/images/white-us-logo.svg" alt=""  className='overlay-logo '/>
+        <img src={`${import.meta.env.BASE_URL}assets/images/white-us-logo.svg`} alt=""  className='overlay-logo '/>
       </div>
       <Intro/>
     </section>

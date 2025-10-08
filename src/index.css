@@ -2,18 +2,18 @@
 
 @font-face {
     font-family: "Long";
-    src: url("../assets/fonts/long.woff");
+    src: url("/assets/fonts/long.woff");
   }
   
   @font-face {
     font-family: "Round";
-    src: url("../assets/fonts/round.woff");
+    src: url("/assets/fonts/round.woff");
   }
   
   @font-face {
     font-family: "Round Bold";
     font-weight: bold;
-    src: url("../assets/fonts/round-bold.woff");
+    src: url("/assets/fonts/round-bold.woff");
   }
   
   @theme {
@@ -209,7 +209,7 @@
   }
   
   .mask-wrapper {
-    mask-image: url("../assets/images/us-logo.svg");
+    mask-image: url("/assets/images/us-logo.svg");
     mask-repeat: no-repeat;
   }
   

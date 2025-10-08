@@ -45,15 +45,15 @@ export default function Ellie() {
           emotions and a longing for connection and hope.
         </p>
         <div className="ellie-2">
-          <img src="/assets/images/ellie2.jpg" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/ellie2.jpg`} />
         </div>
       </div>
       <div className="space-y-5 mt-96 img-box">
         <div className="ellie-1">
-          <img src="/assets/images/ellie1.jpg" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/ellie1.jpg`} />
         </div>
         <div className="ellie-3">
-          <img src="/assets/images/ellie3.jpg" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/ellie3.jpg`} />
         </div>
       </div>
     </section>

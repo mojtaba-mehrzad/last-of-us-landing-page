@@ -36,10 +36,10 @@ export default function Abby() {
     <section className="abby-life">
       <div className="flex flex-col gap-5 items-end img-box lg:1/2 ps-10 mt-96">
         <div className="abby-1">
-          <img src="/assets/images/abby1.webp" alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby1.webp`} alt="" />
         </div>
         <div className="abby-3">
-          <img src="/assets/images/abby3.jpg" alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby3.jpg`} alt="" />
         </div>
       </div>
       <div className="lg:w-1/2 abby-life-content">
@@ -57,7 +57,7 @@ export default function Abby() {
           </p>
         </div>
         <div className="abby-2">
-          <img src="/assets/images/abby2.webp" alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby2.webp`} alt="" />
         </div>
         <p className="max-w-xl lg:ps-32 ps-10">
           {" "}

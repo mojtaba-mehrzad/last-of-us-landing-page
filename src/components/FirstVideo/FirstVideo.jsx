@@ -39,7 +39,7 @@ export default function FirstVideo() {
     <section className="first-vd-wrapper">
       <div className="h-dvh">
         <video
-          src="/assets/videos/last-vid.mp4"
+          src={`${import.meta.env.BASE_URL}assets/videos/last-vid.mp4`}
           className="first-vd"
           ref={videoRef}
           muted
