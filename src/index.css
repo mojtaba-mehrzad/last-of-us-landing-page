@@ -185,7 +185,7 @@
     }
   
     .final-message {
-      @apply absolute w-full h-dvh overflow-hidden z-50 opacity-100;
+      @apply fixed top-0 left-0 w-full h-dvh overflow-hidden z-50;
     }
   }
   

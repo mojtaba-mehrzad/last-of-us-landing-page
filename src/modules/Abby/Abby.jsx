@@ -4,14 +4,14 @@ import React from "react";
 
 export default function Abby() {
   useGSAP(() => {
-    gsap.set(".abby-life", { marginTop: "-80vh" });
+    gsap.set(".abby-life", { marginTop: "-90vh" });
     gsap
       .timeline({
         scrollTrigger: {
           trigger: ".abby-life",
           start: "top 80%",
           end: "10% center",
-          scrub: 2,
+          scrub: 3.5,
         },
       })
       .to(".second-vd", { opacity: 0, direction: 1, ease: "power1.inOut" });

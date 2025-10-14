@@ -10,7 +10,7 @@ export default function SecondVideo() {
       scrollTrigger: {
         trigger: ".abby",
         start: "top top",
-        end: "bottom top",
+        end: "120% top",
         scrub: true,
         pin: true,
         onEnterBack: () => {
@@ -38,7 +38,7 @@ export default function SecondVideo() {
       <div className="h-dvh">
         <video
           src={`${import.meta.env.BASE_URL}assets/videos/last-vid-2.mp4`}
-          className="second-vd"
+          className="second-vd size-full object-cover md:[object-position:50%_center] [object-position:75%_center]"
           ref={videoRef}
           muted
           playsInline
