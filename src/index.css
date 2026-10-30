@@ -221,3 +221,173 @@
   .abby-life-content {
     background: radial-gradient(ellipse, #111117 20%, transparent 70%);
   }
+
+/* Responsive art direction: keep the cinematic desktop sequence, but let
+   smaller screens tell the story in a natural, touch-friendly flow. */
+/* Native smooth scrolling conflicts with the desktop wheel tween. */
+html { scroll-behavior: auto; }
+body { width: 100%; }
+main { width: 100%; }
+img, video { max-width: 100%; }
+section[id] { scroll-margin-top: 5.5rem; }
+:focus-visible { outline: 3px solid #d6d6a1; outline-offset: 4px; }
+.site-nav { gap: 1rem; pointer-events: none; }
+.site-nav > * { pointer-events: auto; }
+.nav-logo { width: clamp(2.5rem, 5vw, 3.75rem); height: auto; }
+.menu-toggle {
+  width: 48px; height: 48px; display: grid; place-content: center; gap: 6px;
+  color: #f2f0e5; border: 1px solid #ffffff4d; border-radius: 50%;
+  background: #10110ed9; cursor: pointer;
+}
+.menu-toggle span { display: block; width: 20px; height: 2px; background: currentColor; }
+.site-menu {
+  position: absolute; right: clamp(1.25rem, 3vw, 2rem); top: calc(100% - .2rem);
+  min-width: min(15rem, calc(100vw - 2.5rem)); padding: .6rem;
+  background: #151712f5; border: 1px solid #ffffff2b;
+  box-shadow: 0 1rem 3rem #0009; backdrop-filter: blur(12px);
+}
+.site-menu[hidden] { display: none; }
+.site-menu a {
+  display: block; padding: .85rem 1rem; color: #f2f0e5; font-size: 1rem;
+  text-decoration: none;
+}
+.site-menu a:hover, .site-menu a:focus-visible { background: #343d27; }
+.hero-section .scale-out { width: 100%; object-position: center; }
+.hero-mobile-backdrop, .hero-mobile-cue { display: none; }
+.scroll-cue {
+  position: absolute; z-index: 5; bottom: max(2rem, env(safe-area-inset-bottom));
+  left: 50%; transform: translateX(-50%); color: white; text-decoration: none;
+  display: flex; align-items: center; flex-direction: column; gap: .4rem;
+  font-size: .875rem; letter-spacing: .13em; text-transform: uppercase; white-space: nowrap;
+}
+.scroll-cue svg { animation: cue-float 2.4s ease-in-out infinite; }
+@keyframes cue-float { 50% { transform: translateY(6px); } }
+.final-message {
+  position: relative; inset: auto; z-index: 1; min-height: 75vh; height: auto;
+  padding: clamp(5rem, 10vw, 9rem) 1.5rem; background: #0c0d0b;
+}
+.final-message > div { min-height: 55vh; }
+.final-message .gradient-title {
+  font-size: clamp(2.75rem, 7.5vw, 7rem); line-height: 1; max-width: 14ch;
+  background-image: linear-gradient(100deg, #aaa792, #eee7cf);
+}
+
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  .hero-section { min-height: 620px; height: 100svh; max-height: 1100px; }
+  .hero-section .mask-wrapper { mask-image: none; position: relative; }
+  .hero-section .mask-wrapper::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, #080b08b8 0%, transparent 42%, #080b08d9 100%);
+  }
+  .hero-section .scale-out { object-position: 56% center; }
+  .hero-section .fake-logo-wrapper {
+    top: clamp(6rem, 16vh, 9rem); left: clamp(1.5rem, 7vw, 5rem); transform: none; translate: none;
+    width: clamp(5.25rem, 12vw, 8rem); z-index: 5;
+  }
+  .hero-section .overlay-logo { opacity: 1; width: 100%; height: auto; }
+  .entrance-message { display: none; }
+  .first-vd-wrapper, .abby { margin: 0; opacity: 1; }
+  .first-vd-wrapper > div, .abby > div { height: clamp(23rem, 75svh, 50rem); }
+  .ellie, .abby-life {
+    margin: 0; padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 6vw, 4rem);
+    width: 100%; display: flex; flex-direction: column; gap: 2rem; overflow: hidden;
+  }
+  .ellie h1, .abby-life h1 {
+    font-size: clamp(4.5rem, 11vw, 7rem); line-height: .9; margin-bottom: 1.75rem;
+    overflow-wrap: anywhere;
+  }
+  .ellie h2, .abby-life h2 {
+    font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.15;
+    max-width: 19ch; padding: 0; margin-bottom: 1.5rem; color: #a5b77c;
+  }
+  .ellie p, .abby-life p {
+    font-size: clamp(1.05rem, 2.1vw, 1.3rem); line-height: 1.65;
+    max-width: 58ch; padding: 0; color: #deded5;
+  }
+  .ellie-content, .abby-life-content { max-width: none; width: 100%; background: none; }
+  .ellie .img-box, .abby-life .img-box {
+    margin: 0; padding: 0; width: 100%; display: grid;
+    grid-template-columns: 1.3fr 1fr; gap: 1rem; align-items: stretch;
+  }
+  .abby-life .img-box { order: 2; }
+  .abby-life-content { order: 1; }
+  .abby-life-content > div:first-child { padding: 0; max-width: none; }
+  .ellie .ellie-1, .ellie .ellie-2, .ellie .ellie-3,
+  .abby-life .abby-1, .abby-life .abby-2, .abby-life .abby-3 {
+    margin: 0; width: 100%; height: auto; transform: none; translate: none; overflow: hidden;
+  }
+  .ellie .ellie-2, .abby-life .abby-2 { margin-top: 2.5rem; margin-bottom: 0; aspect-ratio: 16 / 9; }
+  .abby-life .abby-2 { margin-bottom: 1.75rem; }
+  .ellie .ellie-1, .ellie .ellie-3, .abby-life .abby-1, .abby-life .abby-3 { aspect-ratio: 4 / 5; }
+  .ellie .img-box img, .abby-life .img-box img,
+  .ellie .ellie-2 img, .abby-life .abby-2 img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .abby-life p:last-of-type { display: block; }
+  .final { margin: 0; opacity: 1; height: clamp(23rem, 75svh, 50rem); }
+  .final .final-content { transform: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-section { min-height: 520px; }
+  .hero-section .scale-out { object-position: 61% center; }
+  .ellie, .abby-life { padding-inline: 1.5rem; gap: 1rem; }
+  .ellie .img-box, .abby-life .img-box { gap: .75rem; }
+  .ellie .ellie-2, .abby-life .abby-2 { aspect-ratio: 4 / 3; }
+  .final-message .flex-center { gap: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-cue svg { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+/* The first scene uses the original logo mask. The second is revealed
+   spatially, rather than replacing the sequence with a simple crossfade. */
+@media (max-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .hero-section { background: #000; }
+  .hero-section .hero-mobile-backdrop {
+    display: block; position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  }
+  .hero-section .hero-mobile-backdrop::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, #080b08b8 0%, transparent 42%, #080b08d9 100%);
+  }
+  .hero-section .hero-mobile-cue { display: contents; }
+  .hero-section .mask-wrapper .scroll-cue { display: none; }
+  .hero-section .mask-wrapper {
+    mask-image: url("/assets/images/us-logo.svg");
+    mask-repeat: no-repeat;
+    opacity: 0;
+  }
+  .hero-section .fake-logo-wrapper {
+    top: 12%; left: 50%; transform: translateX(-50%); translate: none;
+    width: clamp(4rem, 12vw, 7rem); z-index: 50;
+  }
+  .hero-section .overlay-logo { opacity: 0; }
+  .hero-section .entrance-message {
+    display: block; visibility: hidden; opacity: 1; mask-image: none;
+    clip-path: circle(0% at 50% 100%); pointer-events: none;
+  }
+  .hero-section .entrance-message > div > img { object-position: 58% center; }
+  .first-vd-wrapper { position: relative; overflow: hidden; background: #000; }
+  .ellie { position: relative; margin-top: -35svh; padding-top: 35svh; }
+  .ellie .img-box { padding-block: 2.5rem; }
+}
+
+/* Reduced motion still exposes both hero scenes and the video poster. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section { height: auto; max-height: none; overflow: hidden; }
+  .hero-section .mask-wrapper { height: 100svh; min-height: 520px; }
+  .hero-section .entrance-message {
+    display: block; position: relative; inset: auto; height: 100svh;
+    min-height: 520px; mask-image: none; clip-path: none; visibility: visible;
+  }
+  .hero-section .entrance-message > div > img { object-position: 58% center; }
+}
+
+.final-content { position: relative; }
+.final-frame-canvas {
+  position: absolute; inset: 0; display: block; width: 100%; height: 100%;
+  opacity: 0; pointer-events: none;
+}
+.final-frame-canvas.is-ready { opacity: 1; }

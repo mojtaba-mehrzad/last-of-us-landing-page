@@ -1,10 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef } from "react";
+import { useRef } from "react";
+import useMobileVideo from "../../utils/useMobileVideo";
 
 export default function SecondVideo() {
   const videoRef = useRef();
+  useMobileVideo(videoRef);
   useGSAP(() => {
+    const media = gsap.matchMedia();
+    media.add("(min-width: 1025px) and (prefers-reduced-motion: no-preference)", () => {
     gsap.set(".abby", { marginTop: "-60vh", opacity: 0 });
     const t1 = gsap.timeline({
       scrollTrigger: {
@@ -16,13 +20,13 @@ export default function SecondVideo() {
         onEnterBack: () => {
           if (videoRef.current) {
             videoRef.current.currentTime = 0;
-            videoRef.current.play();
+            videoRef.current.play().catch(() => {});
           }
         },
         onEnter: () => {
           if (videoRef.current) {
             videoRef.current.currentTime = 0;
-            videoRef.current.play();
+            videoRef.current.play().catch(() => {});
           }
         },
       },
@@ -32,6 +36,8 @@ export default function SecondVideo() {
       duration: 1,
       ease: "power1.inOut",
     });
+    });
+    return () => media.revert();
   }, []);
   return (
     <section className="abby">
@@ -42,7 +48,9 @@ export default function SecondVideo() {
           ref={videoRef}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster={`${import.meta.env.BASE_URL}assets/images/video-2-poster.webp`}
+          aria-hidden="true"
         ></video>
       </div>
     </section>

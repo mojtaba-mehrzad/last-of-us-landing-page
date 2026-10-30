@@ -1,9 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React from "react";
 
 export default function Abby() {
   useGSAP(() => {
+    const media = gsap.matchMedia();
+    media.add("(min-width: 1025px) and (prefers-reduced-motion: no-preference)", () => {
     gsap.set(".abby-life", { marginTop: "-90vh" });
     gsap
       .timeline({
@@ -14,7 +15,7 @@ export default function Abby() {
           scrub: 3.5,
         },
       })
-      .to(".second-vd", { opacity: 0, direction: 1, ease: "power1.inOut" });
+      .to(".second-vd", { opacity: 0, ease: "power1.inOut" });
       gsap.to(
         ".abby-life .img-box",
         {
@@ -30,21 +31,23 @@ export default function Abby() {
         },
         "<"
       );
+    });
+    return () => media.revert();
   }, []);
 
   return (
-    <section className="abby-life">
-      <div className="flex flex-col gap-5 items-end img-box lg:1/2 ps-10 mt-96">
+    <section className="abby-life" id="abby" aria-labelledby="abby-heading">
+      <div className="flex flex-col gap-5 items-end img-box lg:w-1/2 ps-10 mt-96">
         <div className="abby-1">
-          <img src={`${import.meta.env.BASE_URL}assets/images/abby1.webp`} alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby1.webp`} alt="Abby on her journey" loading="lazy" decoding="async" />
         </div>
         <div className="abby-3">
-          <img src={`${import.meta.env.BASE_URL}assets/images/abby3.jpg`} alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby3.jpg`} alt="Abby in a moment of reflection" loading="lazy" decoding="async" />
         </div>
       </div>
       <div className="lg:w-1/2 abby-life-content">
         <div className="max-w-xl lg:ps-32 ps-10">
-          <h1>Abby Anderson</h1>
+          <h1 id="abby-heading">Abby Anderson</h1>
           <h2>
             Trained as a soldier. Driven by vengeance. Hardened by survival.
           </h2>
@@ -57,7 +60,7 @@ export default function Abby() {
           </p>
         </div>
         <div className="abby-2">
-          <img src={`${import.meta.env.BASE_URL}assets/images/abby2.webp`} alt="" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/abby2.webp`} alt="Abby facing the aftermath" loading="lazy" decoding="async" />
         </div>
         <p className="max-w-xl lg:ps-32 ps-10">
           {" "}
